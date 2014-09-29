@@ -52,3 +52,10 @@ Output ...
     {"_ID":"22","ROW":"4","LRB":"L+R+B","XYZ":"q"}
     {"_ID":"22","ROW":"5","LRB":"L+R+X","XYZ":"b"}
 
+
+## See Also
+
+* [`valid-records`](https://github.com/joyrexus/valid-records) - validate
+  specified fields within a set of records (ndjson)
+* [`valid-xlsx`](https://github.com/joyrexus/valid-xlsx) - validate values in
+  columns of an excel worksheet
