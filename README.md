@@ -14,8 +14,7 @@ The parser assumes that the first line of your table contains column headers:
     npm run demo
     npm run cli-demo
 
-Using the provided sample file (`sample.xlsx`), the CLI (`bin/xlsx2ldj`) takes
-an excel file as input and generates line-delimited JSON as output:
+The CLI (`bin/xlsx2ldj`) takes an excel file as input and generates line-delimited JSON as output:
 
     xlsx2ldj --sheet=Transcript sample.xlsx
 
