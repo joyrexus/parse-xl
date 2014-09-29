@@ -14,22 +14,21 @@ The parser assumes that the first line of your table contains column headers:
     npm run demo
     npm run cli-demo
 
-The CLI (`bin/xlsx2ldj`) takes an excel file as input and generates line-delimited JSON as output:
+The CLI (`bin/xlsx2ndj`) takes an excel file as input and generates newline-delimited JSON as output:
 
-    xlsx2ldj --sheet=Transcript sample.xlsx
+    xlsx2ndj --sheet=Transcript sample.xlsx
 
-Output ...
+This outputs ...
 
-```javascript
-{"_ID":"22","ROW":"1","LRB":"L","XYZ":"x"}
-{"_ID":"22","ROW":"2","LRB":"L+L","XYZ":"y"}
-{"_ID":"22","ROW":"3","LRB":"L+ ","XYZ":"z"}
-{"_ID":"22","ROW":"4","LRB":"L+R+B","XYZ":"q"}
-{"_ID":"22","ROW":"5","LRB":"L+R+X","XYZ":"b"}
+```json
+{ "_ID": "22", "ROW": "1", "LRB": "L",     "XYZ": "x" }
+{ "_ID": "22", "ROW": "2", "LRB": "L+L",   "XYZ": "y" }
+{ "_ID": "22", "ROW": "3", "LRB": "L+ ",   "XYZ": "z" }
+{ "_ID": "22", "ROW": "4", "LRB": "L+R+B", "XYZ": "q" }
+{ "_ID": "22", "ROW": "5", "LRB": "L+R+X", "XYZ": "b" }
 ```
 
-
-The module can be used to get particular column values or stream records:
+The module can be used to get particular column values or to stream records:
 
 ```javascript
 var Parser = require('parse-xlsx');

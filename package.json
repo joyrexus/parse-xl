@@ -1,15 +1,15 @@
 {
   "name": "parse-xlsx",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "parse a worksheet in an xlsx file",
   "main": "index.js",
   "bin": {
-    "xlsx2ldj": "./bin/xlsx2ldj.js"
+    "xlsx2ndj": "./bin/xlsx2ndj.js"
   },
   "scripts": {
     "test": "node test.js",
     "demo": "node demo.js",
-    "cli-demo": "bin/xlsx2ldj.js --sheet=Transcript sample.xlsx"
+    "cli-demo": "bin/xlsx2ndj.js --sheet=Transcript sample.xlsx"
   },
   "repository": {
     "type": "git",
