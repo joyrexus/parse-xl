@@ -1,23 +1,14 @@
-var assert = require('assert');
-
+var test = require('tape');
 var Parser = require('./');
-var file = 'sample.xlsx', 
-    sheet = 'Transcript'
-sheet = new Parser(file, sheet);
 
-var test_values = function() {
-    assert.deepEqual(sheet.values('XYZ'), [ 'x', 'y', 'z', 'q', 'b' ]);
-}
+var sheet = new Parser('sample.xlsx', 'Transcript');
 
-var test_records = function() {
-    assert(sheet.records.length === 5);
-}
+test('values', function(t) {
+    t.plan(1);
+    t.same(sheet.values('XYZ'), [ 'x', 'y', 'z', 'q', 'b' ]);
+});
 
-// run all tests here
-runTests = function() {
-    test_values();
-    test_records();
-    console.log('all tests passed!');
-};
-
-runTests()
+test.skip('records', function(t) {
+    t.plan(1);
+    t.equal(sheet.records.length, 5);
+});

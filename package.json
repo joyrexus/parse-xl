@@ -1,6 +1,6 @@
 {
   "name": "parse-xlsx",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "parse a worksheet in an xlsx file",
   "main": "index.js",
   "bin": {
@@ -25,6 +25,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "minimist": "~1.1.0",
-    "j": "~0.3.14"
+    "j": "~0.3.14",
+    "tape": "~3.0.0"
   }
 }
