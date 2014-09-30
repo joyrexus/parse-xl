@@ -21,15 +21,17 @@ module.exports = (function() {
         this.recordStream = rs;     // a readable stream of records
     }
 
+
     // Return values in specified column
     Parser.prototype.values = function(column) {
+
         var values = [];
         for (var i = 0; i < this.records.length; i++) {
             rec = this.records[i];
             values.push(rec[column]);
         }
         return values;
-    }
+    };
 
     return Parser;
 })();
