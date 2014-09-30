@@ -1,9 +1,16 @@
-var Parser = require(__dirname + '/');
+var Parser = require('./');
         
-sheet = new Parser('sample.xlsx', 'Transcript');
+var sample = new Parser('sample.xlsx'),
+    sheet = 'Transcript',
+    column = 'XYZ';
 
 // get values in a column
-console.log('\nValues in column `XYZ`:', sheet.values('XYZ'), "\n");
+console.log(
+    '\nValues in `' + sheet + '` column `' + column + '`:', 
+    sample.values(sheet, column),
+    '\n'
+);
 
 // stream parsed records as line-delimited JSON
-sheet.recordStream.pipe(process.stdout);
+sample.recordStream('Transcript')
+    .pipe(process.stdout);
