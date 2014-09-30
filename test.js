@@ -10,7 +10,7 @@ test('values', function(t) {
 });
 
 
-test.skip('records', function(t) {
+test('records', function(t) {
 
     t.plan(1);
     t.equal(sheet.records.length, 5);
