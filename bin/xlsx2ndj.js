@@ -5,7 +5,7 @@ var Parser = require(__dirname + '/../');
 var options = {
     "default": { sheet: 'Sheet1' }, 
     alias: { s: 'sheet' }
-};
+}
 
 var argv = parseArgs(process.argv.slice(2), options);
 var file = argv._[0];
@@ -13,7 +13,7 @@ var file = argv._[0];
 var usage = function() {
     var use = 'xlsx2json --sheet=SHEET FILE.xlsx';
     console.log(use);
-};
+}
 
 var run = function() {
     if (argv.help) {
@@ -28,6 +28,6 @@ var run = function() {
     sheet = new Parser(file, argv.sheet);
     sheet.recordStream.pipe(process.stdout);
 
-};
+}
 
 run();

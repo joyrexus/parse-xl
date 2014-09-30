@@ -29,8 +29,7 @@ module.exports = (function() {
             values.push(rec[column]);
         }
         return values;
-    };
+    }
 
     return Parser;
-
 })();
