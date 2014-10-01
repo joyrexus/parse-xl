@@ -1,6 +1,6 @@
 {
   "name": "parse-xl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "parse an excel file",
   "main": "index.js",
   "bin": {
