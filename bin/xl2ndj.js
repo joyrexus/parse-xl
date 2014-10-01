@@ -13,14 +13,14 @@ var file = argv._[0];
 
 
 // print usage info
-var usage = function() {
+var usage = function () {
 
     var use = 'xlsx2json --sheet=SHEET FILE.xlsx';
     console.log(use);
 };
 
 
-var run = function() {
+var run = function () {
 
     if (argv.help) {
         usage();
