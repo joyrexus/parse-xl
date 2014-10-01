@@ -14,9 +14,9 @@ The parser assumes that the first line of your table contains column headers:
     npm run demo
     npm run cli-demo
 
-The CLI (`bin/xl2ndj`) takes an excel file as input and generates newline-delimited JSON as output:
+The CLI (`bin/parse-xl.js`) takes an excel file as input and generates newline-delimited JSON as output:
 
-    xl2ndj --sheet=Transcript sample.xlsx
+    parse-xl --sheet=Transcript sample.xlsx
 
 This outputs ...
 
@@ -31,9 +31,8 @@ This outputs ...
 The module can be used to get particular column values or to stream records:
 
 ```javascript
-var Parser = require('parse-xl');
-        
-var sample = new Parser('sample.xlsx');
+var Parser = require('parse-xl'),
+    sample = new Parser('sample.xlsx');
 
 // get values in a column
 console.log(
@@ -61,5 +60,5 @@ Output ...
 
 * [`valid-records`](https://github.com/joyrexus/valid-records) - validate
   specified fields within a set of records (ndjson)
-* [`valid-xlsx`](https://github.com/joyrexus/valid-xlsx) - validate values in
+* [`valid-xl`](https://github.com/joyrexus/valid-xl) - validate values in
   columns of an excel worksheet

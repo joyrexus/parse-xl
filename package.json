@@ -4,12 +4,12 @@
   "description": "parse an excel file",
   "main": "index.js",
   "bin": {
-    "xl2ndj": "./bin/xl2ndj.js"
+    "parse-xl": "./bin/parse-xl.js"
   },
   "scripts": {
     "test": "node test.js",
     "demo": "node demo.js",
-    "cli-demo": "bin/xl2ndj.js --sheet=Transcript sample.xlsx"
+    "cli-demo": "bin/parse-xl.js --sheet=Transcript sample.xlsx"
   },
   "repository": {
     "type": "git",

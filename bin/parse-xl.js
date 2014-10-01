@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+'use strict';
+
 var parseArgs = require('minimist');
 var Parser = require(__dirname + '/../');
 
@@ -15,7 +17,7 @@ var file = argv._[0];
 // print usage info
 var usage = function () {
 
-    var use = 'xlsx2json --sheet=SHEET FILE.xlsx';
+    var use = 'parse-xl --sheet=SHEET FILE.xlsx';
     console.log(use);
 };
 
@@ -33,7 +35,7 @@ var run = function () {
         return;
     }
 
-    sample = new Parser(file);
+    var sample = new Parser(file);
 
     sample.recordStream(argv.sheet)
         .pipe(process.stdout);
