@@ -2,6 +2,7 @@
 var parseArgs = require('minimist');
 var Parser = require(__dirname + '/../');
 
+
 var options = {
     "default": { sheet: 'Sheet1' }, 
     alias: { s: 'sheet' }
@@ -10,6 +11,8 @@ var options = {
 var argv = parseArgs(process.argv.slice(2), options);
 var file = argv._[0];
 
+
+// print usage info
 var usage = function() {
 
     var use = 'xlsx2json --sheet=SHEET FILE.xlsx';
@@ -30,8 +33,11 @@ var run = function() {
         return;
     }
 
-    sheet = new Parser(file, argv.sheet);
-    sheet.recordStream.pipe(process.stdout);
+    sample = new Parser(file);
+
+    sample.recordStream(argv.sheet)
+        .pipe(process.stdout);
 };
 
 run();
+

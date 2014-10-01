@@ -1,35 +1,53 @@
 var parse = require('j');
 var Readable = require('stream').Readable;
 
-module.exports = (function() {
 
-    function Parser(file, sheet) {
+module.exports = (function () {
+
+    var Parser = function (file) {
+
         this.file = file;
-        this.sheet = sheet;
-        var parsed = parse.readFile(this.file);
-        var data = parse.utils.to_json(parsed);
-        this.records = data[sheet];
+        var p = parse.readFile(file);
+        this.data = parse.utils.to_json(p);
+    };
+
+
+    // Return records in specified sheet
+    Parser.prototype.records = function (sheet) {
+
+        return this.data[sheet];
+    };
+
+
+    // Return a readable stream of records in specified sheet
+    Parser.prototype.recordStream = function (sheet) {
+    
         var rs = Readable(), // { objectMode: true }),
-            records = this.records,
-            length = this.records.length;
+            recs = this.data[sheet];
+
         rs._read = function () {
-            for (var i = 0; i < length; i++) {
-                rs.push(JSON.stringify(records[i]) + "\n");
+
+            for (var i = 0, il = recs.length; i < il; i++) {
+                rs.push(JSON.stringify(recs[i]) + "\n");
             }
             rs.push(null);
-        }
-        this.recordStream = rs;     // a readable stream of records
-    }
+        };
+
+        return rs;     // a readable stream of records
+    };
+
 
 
     // Return values in specified column
-    Parser.prototype.values = function(column) {
+    Parser.prototype.values = function (sheet, column) {
 
-        var values = [];
-        for (var i = 0; i < this.records.length; i++) {
-            rec = this.records[i];
-            values.push(rec[column]);
+        var values = [],
+            recs = this.data[sheet];
+
+        for (var i = 0, il = recs.length; i < il; i++) {
+            values.push(recs[i][column]);
         }
+
         return values;
     };
 

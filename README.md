@@ -1,4 +1,4 @@
-# parse-xlsx
+# parse-xl
 
 A simple module and CLI for parsing tabular data in an excel worksheet.
 
@@ -9,14 +9,14 @@ The parser assumes that the first line of your table contains column headers:
 
 ## Usage
 
-    npm install -g parse-xlsx
+    npm install -g parse-xl
     npm run test
     npm run demo
     npm run cli-demo
 
-The CLI (`bin/xlsx2ndj`) takes an excel file as input and generates newline-delimited JSON as output:
+The CLI (`bin/xl2ndj`) takes an excel file as input and generates newline-delimited JSON as output:
 
-    xlsx2ndj --sheet=Transcript sample.xlsx
+    xl2ndj --sheet=Transcript sample.xlsx
 
 This outputs ...
 
@@ -31,20 +31,24 @@ This outputs ...
 The module can be used to get particular column values or to stream records:
 
 ```javascript
-var Parser = require('parse-xlsx');
+var Parser = require('parse-xl');
         
-sheet = new Parser('sample.xlsx', 'Transcript');
+var sample = new Parser('sample.xlsx');
 
 // get values in a column
-console.log('\nValues in column `XYZ`:', sheet.values('XYZ'), "\n");
+console.log(
+  '\nValues in column `XYZ` of `Transcript`:', 
+  sample.values('Transcript', 'XYZ'), 
+  '\n'
+);
 
 // stream parsed records as line-delimited JSON
-sheet.recordStream.pipe(process.stdout);
+sample.recordStream('Transcript').pipe(process.stdout);
 ```
 
 Output ...
 
-    Values in column `XYZ`: [ 'x', 'y', 'z', 'q', 'b' ] 
+    Values in column `XYZ` of `Transcript`: [ 'x', 'y', 'z', 'q', 'b' ] 
 
     {"_ID":"22","ROW":"1","LRB":"L","XYZ":"x"}
     {"_ID":"22","ROW":"2","LRB":"L+L","XYZ":"y"}
